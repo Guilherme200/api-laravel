@@ -1,0 +1,43 @@
+version: '3'
+
+volumes:
+  app-postgres-data:
+    driver: local
+
+services:
+  app:
+    user: ${DOCKER_UID}:${DOCKER_UID}
+    container_name: ${PROJECT_NAME}-app
+    image: webdevops/php-nginx:8.1-alpine
+    volumes:
+      - ./project:/app
+    working_dir: /app
+    environment:
+      - WEB_DOCUMENT_ROOT=/app/public
+      - PHP_MEMORY_LIMIT=256M
+      - php.opcache.enable_cli=1
+    ports:
+      - 80:80
+
+  postgres:
+    container_name: ${PROJECT_NAME}-postgres
+    image: postgres:15-alpine
+    volumes:
+      - app-postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=app_dev
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=laraveldocker
+    ports:
+      - 5433:5432
+
+  redis:
+    container_name: ${PROJECT_NAME}-redis
+    image: redis:5.0
+    command: --appendonly no
+
+  mailcatcher:
+    container_name: ${PROJECT_NAME}-mailcatcher
+    image: schickling/mailcatcher
+    ports:
+      - 1080:1080
