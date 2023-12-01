@@ -17,7 +17,7 @@ $app = new Illuminate\Foundation\Application(
 
 /*
 |--------------------------------------------------------------------------
-| Bind Important Interfaces
+| Bind Important Interface
 |--------------------------------------------------------------------------
 |
 | Next, we need to bind some important interfaces into the container so
@@ -28,12 +28,12 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
-    \App\Interfaces\Http\Kernel::class
+    \App\Interface\Http\Kernel::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    \App\Interfaces\Console\Kernel::class
+    \App\Interface\Console\Kernel::class
 );
 
 $app->singleton(
