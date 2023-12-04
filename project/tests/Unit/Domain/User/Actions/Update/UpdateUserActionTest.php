@@ -17,7 +17,7 @@ class UpdateUserActionTest extends TestCaseUnit
     /**
      * @throws NotFoundException
      */
-    public function test_update_user(): void
+    public function test_should_success_update_user(): void
     {
         $id = '786f8013-3ebe-4aee-ad9f-e857c5d5d887';
 
@@ -52,7 +52,7 @@ class UpdateUserActionTest extends TestCaseUnit
         $this->assertTrue(!!Hash::check($data->password, $user->password));
     }
 
-    public function test_throw_update_user(): void
+    public function test_should_throw_exception_update_user(): void
     {
         $id = '786f8013-3ebe-4aee-ad9f-e857c5d5d887';
 

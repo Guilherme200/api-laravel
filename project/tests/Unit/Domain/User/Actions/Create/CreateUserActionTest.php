@@ -13,7 +13,7 @@ class CreateUserActionTest extends TestCaseUnit
 {
     use RefreshDatabase;
 
-    public function test_create_user(): void
+    public function test_should_success_create_user(): void
     {
         $data = CreateUserDto::from([
             'name' => 'test',
