@@ -19,6 +19,10 @@ class DeleteUserAction
      */
     public function execute(string $id): bool
     {
-        return $this->repository->delete($id);
+        try {
+            return $this->repository->delete($id);
+        } catch (\Exception) {
+            throw new NotFoundException('User not found');
+        }
     }
 }
