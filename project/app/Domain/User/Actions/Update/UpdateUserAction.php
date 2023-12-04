@@ -27,7 +27,7 @@ class UpdateUserAction
             throw new NotFoundException('User not found');
         }
 
-        $data = UserData::from([
+        $user = UserData::from([
             'id' => $user->id,
             'name' => $dto->name,
             'email' => $dto->email,
@@ -36,6 +36,7 @@ class UpdateUserAction
             'updatedAt' => now(),
         ]);
 
-        return $this->repository->update($data);
+        $this->repository->update($user);
+        return $user;
     }
 }

@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 
 class CreateUserAction
 {
+    private mixed $repository;
+
     public function __construct()
     {
         $this->repository = app(UserRepository::class);
@@ -22,9 +24,10 @@ class CreateUserAction
             'email' => $dto->email,
             'password' => Hash::make($dto->password),
             'createdAt' => now(),
-            'updatedAt' => now(),
+            'updatedAt' => now()
         ]);
 
-        return $this->repository->create($user);
+        $this->repository->create($user);
+        return $user;
     }
 }

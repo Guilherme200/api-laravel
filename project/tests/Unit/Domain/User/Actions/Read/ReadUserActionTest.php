@@ -6,7 +6,6 @@ use App\Domain\Shared\Exceptions\NotFoundException;
 use App\Domain\User\Actions\Read\ReadUserAction;
 use App\Domain\User\Data\UserData;
 use App\Domain\User\Repositories\UserRepository;
-use App\Infra\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Tests\Cases\TestCaseUnit;
 
@@ -32,9 +31,7 @@ class ReadUserActionTest extends TestCaseUnit
             ->andReturn($userOutput);
 
         $user = (new ReadUserAction())->execute($userOutput->id);
-
         $this->assertEquals($user, $userOutput);
-
     }
 
     public function test_should_throw_exception_read_user(): void

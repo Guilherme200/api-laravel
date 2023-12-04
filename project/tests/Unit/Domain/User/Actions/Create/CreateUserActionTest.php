@@ -4,7 +4,9 @@ namespace Tests\Unit\Domain\User\Actions\Create;
 
 use App\Domain\User\Actions\Create\CreateUserAction;
 use App\Domain\User\Actions\Create\CreateUserDto;
-use App\Infra\Models\User;
+use App\Domain\User\Data\UserData;
+use App\Domain\User\Repositories\UserRepository;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Tests\Cases\TestCaseUnit;
@@ -21,14 +23,14 @@ class CreateUserActionTest extends TestCaseUnit
             'password' => '12345678'
         ]);
 
-        $this->mock(User::class)
-            ->shouldReceive('create')
-            ->andReturnTrue();
+        $this->mock(UserRepository::class)
+            ->shouldReceive('create');
 
         $user = (new CreateUserAction())->execute($data);
-        $this->assertTrue(!!$user->id);
-        $this->assertEquals($user->name, $data->name);
-        $this->assertEquals($user->email, $data->email);
-        $this->assertTrue(!!Hash::check($data->password, $user->password));
+        $this->assertInstanceOf(UserData::class, $user);
+        $this->assertNotNull($user->id);
+        $this->assertTrue(Hash::check($data->password, $user->password));
+        $this->assertInstanceOf(Carbon::class, $user->createdAt);
+        $this->assertInstanceOf(Carbon::class, $user->updatedAt);
     }
 }
