@@ -1,20 +1,21 @@
 <?php
 
-namespace App\Domain\User\Actions\Create;
+namespace App\Domain\User\Actions\Update;
 
 use App\Domain\Shared\Support\Uuid;
+use App\Domain\User\Actions\Create\UpdateUserDto;
 use App\Domain\User\Data\UserData;
 use App\Domain\User\Repositories\UserRepository;
 use Illuminate\Support\Facades\Hash;
 
-class CreateUserAction
+class UpdateUserAction
 {
     public function __construct()
     {
         $this->repository = app(UserRepository::class);
     }
 
-    public function execute(CreateUserDto $dto): UserData
+    public function execute(UpdateUserDto $dto): UserData
     {
         $user = UserData::from([
             'id' => Uuid::generate(),

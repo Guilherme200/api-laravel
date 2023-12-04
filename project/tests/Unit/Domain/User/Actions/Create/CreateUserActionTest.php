@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Unit\Domain\User\Actions;
+namespace Tests\Unit\Domain\User\Actions\Create;
 
 use App\Domain\User\Actions\Create\CreateUserAction;
-use App\Domain\User\Actions\Create\InputUserDto;
+use App\Domain\User\Actions\Create\CreateUserDto;
 use App\Infra\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +15,7 @@ class CreateUserActionTest extends TestCaseUnit
 
     public function test_create_user(): void
     {
-        $data = InputUserDto::from([
+        $data = CreateUserDto::from([
             'name' => 'test',
             'email' => 'test@email.com',
             'password' => '12345678'
