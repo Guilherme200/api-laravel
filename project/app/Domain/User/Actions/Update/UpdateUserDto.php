@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\User\Actions\Create;
+namespace App\Domain\User\Actions\Update;
 
 use Spatie\LaravelData\Data;
 

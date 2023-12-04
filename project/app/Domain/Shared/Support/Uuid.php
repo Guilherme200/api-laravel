@@ -2,12 +2,12 @@
 
 namespace App\Domain\Shared\Support;
 
-use Illuminate\Support\Str;
+use Ramsey\Uuid\Uuid as Uuid4;
 
 class Uuid
 {
     static public function generate(): string
     {
-        return Str::uuid()->toString();
+        return (string) Uuid4::uuid4();
     }
 }
