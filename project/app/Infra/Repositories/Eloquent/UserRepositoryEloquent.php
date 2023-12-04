@@ -62,4 +62,15 @@ class UserRepositoryEloquent implements UserRepository
             'updatedAt' => $this->model->updated_at
         ]);
     }
+
+    public function delete(string $id): bool
+    {
+        $this->model = $this->model->find($id);
+
+        if (!$this->model) {
+            return false;
+        }
+
+        return $this->model->delete();
+    }
 }
