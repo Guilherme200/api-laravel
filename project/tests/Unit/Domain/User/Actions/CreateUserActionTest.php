@@ -4,11 +4,12 @@ namespace Tests\Unit\Domain\User\Actions;
 
 use App\Domain\User\Actions\Create\CreateUserAction;
 use App\Domain\User\Actions\Create\InputUserDto;
+use App\Infra\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
-use Tests\TestCase;
+use Tests\Cases\TestCaseUnit;
 
-class CreateUserActionTest extends TestCase
+class CreateUserActionTest extends TestCaseUnit
 {
     use RefreshDatabase;
 
@@ -19,6 +20,10 @@ class CreateUserActionTest extends TestCase
             'email' => 'test@email.com',
             'password' => '12345678'
         ]);
+
+        $this->mock(User::class)
+            ->shouldReceive('create')
+            ->andReturnTrue();
 
         $user = (new CreateUserAction())->execute($data);
         $this->assertTrue(!!$user->id);

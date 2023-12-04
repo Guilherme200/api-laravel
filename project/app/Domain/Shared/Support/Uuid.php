@@ -10,5 +10,4 @@ class Uuid
     {
         return Str::uuid()->toString();
     }
-
 }

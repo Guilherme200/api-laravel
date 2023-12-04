@@ -11,14 +11,14 @@ class UserRepositoryEloquent implements UserRepository
 {
     private User $model;
 
-    public function __construct(User $user)
+    public function __construct()
     {
-        $this->model = $user;
+        $this->model = app(User::class);
     }
 
     public function create(UserData $dto): UserData
     {
-        $this->model->query()->create([
+        $this->model->create([
             'id' => $dto->id,
             'name' => $dto->name,
             'email' => $dto->email,
