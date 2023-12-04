@@ -7,7 +7,7 @@ use Tests\Cases\TestCaseUnit;
 
 class UuidTest extends TestCaseUnit
 {
-    public function test_support_uuid_generate(): void
+    public function test_should_generate_uuid(): void
     {
         $uuid = Uuid::generate();
         $invalidUuid = 'not-a-valid-uuid';
