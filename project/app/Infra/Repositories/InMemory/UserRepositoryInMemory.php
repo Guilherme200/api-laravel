@@ -3,7 +3,6 @@
 namespace App\Infra\Repositories\InMemory;
 
 
-use App\Domain\User\Actions\Create\InputUserDto;
 use App\Domain\User\Data\UserData;
 use App\Domain\User\Repositories\UserRepository;
 use App\Infra\Models\User;
@@ -15,7 +14,7 @@ class UserRepositoryInMemory implements UserRepository
         $this->model = $user;
     }
 
-    public function create(InputUserDto $dto): UserData
+    public function create(UserData $dto): UserData
     {
         return UserData::from([
             'id' => 1,
