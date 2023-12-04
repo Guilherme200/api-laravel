@@ -14,7 +14,7 @@ class ReadUserActionTest extends TestCaseUnit
     /**
      * @throws NotFoundException
      */
-    public function test_should__success_read_user(): void
+    public function test_should_success_read_user(): void
     {
         $userOutput = UserData::from([
             'id' => '786f8013-3ebe-4aee-ad9f-e857c5d5d887',
