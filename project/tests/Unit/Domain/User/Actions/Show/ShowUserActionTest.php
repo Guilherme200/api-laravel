@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Domain\User\Actions\Read;
+namespace Tests\Unit\Domain\User\Actions\Show;
 
 use App\Domain\Shared\Exceptions\NotFoundException;
 use App\Domain\User\Actions\Show\ShowUserAction;
@@ -9,7 +9,7 @@ use App\Domain\User\Repositories\UserRepository;
 use Illuminate\Support\Facades\Hash;
 use Tests\Cases\TestCaseUnit;
 
-class ReadUserActionTest extends TestCaseUnit
+class ShowUserActionTest extends TestCaseUnit
 {
     /**
      * @throws NotFoundException

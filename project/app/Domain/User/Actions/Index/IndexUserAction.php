@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Domain\User\Actions\Index;
+
+use App\Domain\Shared\Exceptions\NotFoundException;
+use App\Domain\User\Data\UserData;
+use App\Domain\User\Repositories\UserRepository;
+
+class IndexUserAction
+{
+    private mixed $repository;
+
+    public function __construct()
+    {
+        $this->repository = app(UserRepository::class);
+    }
+
+    /**
+     * @throws NotFoundException
+     */
+    public function execute(): UserData
+    {
+        return $this->repository->pagination();
+    }
+}

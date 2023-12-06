@@ -5,8 +5,6 @@ namespace App\Infra\Repositories\Eloquent;
 use App\Domain\User\Data\UserData;
 use App\Domain\User\Repositories\UserRepository;
 use App\Infra\Models\User;
-use Exception;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class UserRepositoryEloquent implements UserRepository
 {
@@ -69,5 +67,10 @@ class UserRepositoryEloquent implements UserRepository
     {
         $model = $this->model::findOrFail($id);
         return $model->delete();
+    }
+
+    public function pagination(): self
+    {
+        dd("aaaaa");
     }
 }

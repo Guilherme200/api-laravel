@@ -13,4 +13,6 @@ interface UserRepository
     public function findById(string $id): UserData|null;
 
     public function delete(string $id): bool;
+
+    public function pagination(): self;
 }
