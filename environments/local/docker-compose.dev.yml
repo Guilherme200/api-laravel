@@ -5,13 +5,13 @@ services:
     container_name: ${APP_NAME}-mailcatcher
     image: schickling/mailcatcher
     ports:
-      - 1080:1080
+      - ${MAILCATCHER_PORT}:1080
 
   test-postgres:
     container_name: ${APP_NAME}-postgres-test
     image: postgres:15-alpine
-    volumes:
-      - app-postgres-data:/var/lib/postgresql/data
+    tmpfs:
+      - /var/lib/postgresql/data
     environment:
       - POSTGRES_DB=${TEST_POSTGRES_DB}
       - POSTGRES_USER=${TEST_POSTGRES_USER}
