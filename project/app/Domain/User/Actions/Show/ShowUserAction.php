@@ -6,7 +6,7 @@ use App\Domain\Shared\Exceptions\NotFoundException;
 use App\Domain\User\Data\UserData;
 use App\Domain\User\Repositories\UserRepository;
 
-class ReadUserAction
+class ShowUserAction
 {
     private mixed $repository;
 

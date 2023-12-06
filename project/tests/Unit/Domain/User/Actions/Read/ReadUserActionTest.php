@@ -3,7 +3,7 @@
 namespace Tests\Unit\Domain\User\Actions\Read;
 
 use App\Domain\Shared\Exceptions\NotFoundException;
-use App\Domain\User\Actions\Show\ReadUserAction;
+use App\Domain\User\Actions\Show\ShowUserAction;
 use App\Domain\User\Data\UserData;
 use App\Domain\User\Repositories\UserRepository;
 use Illuminate\Support\Facades\Hash;
@@ -30,7 +30,7 @@ class ReadUserActionTest extends TestCaseUnit
         $userMock->shouldReceive('findById')
             ->andReturn($userOutput);
 
-        $user = (new ReadUserAction())->execute($userOutput->id);
+        $user = (new ShowUserAction())->execute($userOutput->id);
         $this->assertEquals($user, $userOutput);
     }
 
@@ -43,6 +43,6 @@ class ReadUserActionTest extends TestCaseUnit
 
         $this->expectException(NotFoundException::class);
         $this->expectExceptionMessage('User not found');
-        (new ReadUserAction())->execute($id);
+        (new ShowUserAction())->execute($id);
     }
 }
