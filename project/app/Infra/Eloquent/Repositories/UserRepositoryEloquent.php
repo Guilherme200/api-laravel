@@ -5,6 +5,9 @@ namespace App\Infra\Eloquent\Repositories;
 use App\Domain\User\Data\UserData;
 use App\Domain\User\Repositories\UserRepository;
 use App\Infra\Eloquent\Models\User;
+use App\Infra\Eloquent\Support\PaginationBuilder;
+use Illuminate\Http\Resources\Json\JsonResource;
+
 
 class UserRepositoryEloquent implements UserRepository
 {
@@ -69,8 +72,11 @@ class UserRepositoryEloquent implements UserRepository
         return $model->delete();
     }
 
-    public function pagination(): self
+    public function pagination(): JsonResource
     {
-        return $this;
+        return PaginationBuilder::for($this->model)
+            ->perPage(15)
+            ->filterBy([])
+            ->build();
     }
 }

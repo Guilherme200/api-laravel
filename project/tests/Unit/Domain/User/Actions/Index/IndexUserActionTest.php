@@ -4,6 +4,7 @@ namespace Tests\Unit\Domain\User\Actions\Index;
 
 use App\Domain\Shared\Exceptions\NotFoundException;
 use App\Domain\User\Actions\Index\IndexUserAction;
+use App\Domain\User\Repositories\UserRepository;
 use Tests\Cases\TestCaseUnit;
 
 class IndexUserActionTest extends TestCaseUnit
@@ -13,6 +14,10 @@ class IndexUserActionTest extends TestCaseUnit
      */
     public function test_should_success_index_user(): void
     {
-        $pagination = (new IndexUserAction())->execute();
+        $userMock = $this->mock(UserRepository::class);
+        $userMock->shouldReceive('pagination')
+            ->once();
+
+        (new IndexUserAction())->execute();
     }
 }

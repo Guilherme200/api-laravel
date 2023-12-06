@@ -3,6 +3,7 @@
 namespace App\Domain\User\Repositories;
 
 use App\Domain\User\Data\UserData;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 interface UserRepository
 {
@@ -14,5 +15,5 @@ interface UserRepository
 
     public function delete(string $id): bool;
 
-    public function pagination(): self;
+    public function pagination(): JsonResource;
 }
