@@ -3,7 +3,7 @@
 namespace Tests\Unit\Domain\User\Actions\Read;
 
 use App\Domain\Shared\Exceptions\NotFoundException;
-use App\Domain\User\Actions\Read\ReadUserAction;
+use App\Domain\User\Actions\Show\ReadUserAction;
 use App\Domain\User\Data\UserData;
 use App\Domain\User\Repositories\UserRepository;
 use Illuminate\Support\Facades\Hash;

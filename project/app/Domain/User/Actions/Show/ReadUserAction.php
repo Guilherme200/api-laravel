@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\User\Actions\Read;
+namespace App\Domain\User\Actions\Show;
 
 use App\Domain\Shared\Exceptions\NotFoundException;
 use App\Domain\User\Data\UserData;
