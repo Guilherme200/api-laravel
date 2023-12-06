@@ -14,6 +14,5 @@ class IndexUserActionTest extends TestCaseUnit
     public function test_should_success_index_user(): void
     {
         $pagination = (new IndexUserAction())->execute();
-        dd($pagination);
     }
 }

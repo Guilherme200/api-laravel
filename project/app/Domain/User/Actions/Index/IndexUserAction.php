@@ -18,7 +18,7 @@ class IndexUserAction
     /**
      * @throws NotFoundException
      */
-    public function execute(): UserData
+    public function execute()
     {
         return $this->repository->pagination();
     }

@@ -71,6 +71,6 @@ class UserRepositoryEloquent implements UserRepository
 
     public function pagination(): self
     {
-        dd("aaaaa");
+        return $this;
     }
 }
