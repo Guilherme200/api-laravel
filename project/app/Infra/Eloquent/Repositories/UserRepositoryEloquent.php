@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Infra\Repositories\Eloquent;
+namespace App\Infra\Eloquent\Repositories;
 
 use App\Domain\User\Data\UserData;
 use App\Domain\User\Repositories\UserRepository;
-use App\Infra\Models\User;
+use App\Infra\Eloquent\Models\User;
 
 class UserRepositoryEloquent implements UserRepository
 {
