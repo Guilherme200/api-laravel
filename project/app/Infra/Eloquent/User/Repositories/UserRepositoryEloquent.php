@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Infra\Eloquent\Repositories;
+namespace App\Infra\Eloquent\User\Repositories;
 
 use App\Domain\User\Data\UserData;
 use App\Domain\User\Repositories\UserRepository;
-use App\Infra\Eloquent\Models\User;
-use App\Infra\Eloquent\Support\PaginationBuilder;
+use App\Infra\Eloquent\Shared\Support\PaginationBuilder;
+use App\Infra\Eloquent\User\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Infra\Eloquent\Support;
+namespace App\Infra\Eloquent\Shared\Support;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PaginationBuilder
