@@ -8,7 +8,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class PaginationBuilder
 {
-    private static Builder $subject;
+    protected static Builder $subject;
     protected int $perPage = 20;
     protected JsonResource|null $resource = null;
 

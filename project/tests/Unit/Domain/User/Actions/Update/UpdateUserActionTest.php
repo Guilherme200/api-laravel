@@ -14,8 +14,6 @@ use Tests\Cases\TestCaseUnit;
 
 class UpdateUserActionTest extends TestCaseUnit
 {
-    use RefreshDatabase;
-
     /**
      * @throws NotFoundException
      */

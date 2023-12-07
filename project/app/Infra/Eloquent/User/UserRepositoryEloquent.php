@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Infra\Eloquent\User\Repositories;
+namespace App\Infra\Eloquent\User;
 
 use App\Domain\User\Data\UserData;
 use App\Domain\User\Repositories\UserRepository;
 use App\Infra\Eloquent\Shared\Support\PaginationBuilder;
-use App\Infra\Eloquent\User\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
-
 
 class UserRepositoryEloquent implements UserRepository
 {
@@ -68,15 +66,19 @@ class UserRepositoryEloquent implements UserRepository
 
     public function delete(string $id): bool
     {
-        $model = $this->model::findOrFail($id);
-        return $model->delete();
+        try {
+            $this->model->findOrFail($id)->delete();
+            return true;
+        } catch (\Exception) {
+            return false;
+        }
     }
 
     public function pagination(): JsonResource
     {
         return PaginationBuilder::for($this->model)
             ->perPage(15)
-            ->filterBy([])
+            ->filterBy(['name' => 'test'])
             ->build();
     }
 }
