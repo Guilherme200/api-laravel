@@ -2,11 +2,12 @@
 
 namespace App\Infra\Eloquent\Shared\Support;
 
+use App\Domain\Shared\Support\PaginationBuilder;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PaginationBuilder
+class PaginationBuilderEloquent implements PaginationBuilder
 {
     protected static Builder $subject;
     protected int $perPage = 20;

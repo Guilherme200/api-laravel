@@ -4,7 +4,7 @@ namespace App\Infra\Eloquent\User;
 
 use App\Domain\User\Data\UserData;
 use App\Domain\User\Repositories\UserRepository;
-use App\Infra\Eloquent\Shared\Support\PaginationBuilder;
+use App\Infra\Eloquent\Shared\Support\PaginationBuilderEloquent;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserRepositoryEloquent implements UserRepository
@@ -76,7 +76,7 @@ class UserRepositoryEloquent implements UserRepository
 
     public function pagination(): JsonResource
     {
-        return PaginationBuilder::for($this->model)
+        return PaginationBuilderEloquent::for($this->model)
             ->perPage(15)
             ->filterBy(['name' => 'test'])
             ->build();
