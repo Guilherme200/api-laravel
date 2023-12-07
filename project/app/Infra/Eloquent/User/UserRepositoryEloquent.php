@@ -4,8 +4,8 @@ namespace App\Infra\Eloquent\User;
 
 use App\Domain\User\Data\UserData;
 use App\Domain\User\Repositories\UserRepository;
-use App\Infra\Eloquent\Shared\Support\PaginationBuilderEloquent;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Infra\Eloquent\Shared\Support\PaginationBuilderEloquent;
 
 class UserRepositoryEloquent implements UserRepository
 {

@@ -1,26 +1,22 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Infra\Eloquent\User;
 
+use App\Domain\Shared\Support\Uuid;
+use App\Infra\Eloquent\User\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Infra\Eloquent\User\User>
- */
 class UserFactory extends Factory
 {
     protected static ?string $password;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = User::class;
     public function definition(): array
     {
         return [
+            'id' => Uuid::generate(),
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
