@@ -22,7 +22,6 @@ class UserRepositoryEloquent implements UserRepository
             'id' => $dto->id,
             'name' => $dto->name,
             'email' => $dto->email,
-            'email_verified_at' => $dto->emailVerifiedAt,
             'password' => $dto->password,
             'created_at' => $dto->createdAt,
             'updated_at' => $dto->updatedAt,
@@ -36,7 +35,6 @@ class UserRepositoryEloquent implements UserRepository
             'id' => $dto->id,
             'name' => $dto->name,
             'email' => $dto->email,
-            'email_verified_at' => $dto->emailVerifiedAt,
             'password' => $dto->password,
             'created_at' => $dto->createdAt,
             'updated_at' => $dto->updatedAt,
@@ -57,7 +55,6 @@ class UserRepositoryEloquent implements UserRepository
             'id' => $this->model->id,
             'name' => $this->model->name,
             'email' => $this->model->email,
-            'emailVerifiedAt' => $this->model->email_verified_at,
             'password' => $this->model->password,
             'createdAt' => $this->model->created_at,
             'updatedAt' => $this->model->updated_at

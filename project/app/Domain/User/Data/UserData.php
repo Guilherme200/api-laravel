@@ -13,8 +13,7 @@ class UserData extends Data
         public string $email,
         public string $password,
         public Carbon $createdAt,
-        public Carbon $updatedAt,
-        public Carbon|null $emailVerifiedAt,
+        public Carbon $updatedAt
     )
     {
     }
